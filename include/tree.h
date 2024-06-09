@@ -13,8 +13,19 @@ struct Node {
 };
 
 class Tree {
+public:
+	std::vector<std::vector<char> > getPerm() const {
+        std::vector <std::vector<char>> perm;
+        std::vector<char> current;
+        generatePermut(root, &current, &perm);
+        return perm;
+	}
+    explicit Tree(const std::vector<char>& symbol) {
+        root = new Node('\0');
+        buildTree(symbol, root);
+    }
 private:
-	std::vector <std::vector<char>> perm;
+    
     Node* root;
 
     void buildTree(const std::vector<char>& symbol, Node* parent) {
@@ -40,15 +51,6 @@ private:
             }
         }
         dataPermutation->pop_back();
-    }
-
-public:
-	std::vector<std::vector<char> > getPerm() const {
-		return perm;
-	}
-    explicit Tree(const std::vector<char>& symbol) {
-        root = new Node('\0');
-        buildTree(symbol, root);
     }
 };
 #endif  // INCLUDE_TREE_H_
