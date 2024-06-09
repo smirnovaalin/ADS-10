@@ -34,12 +34,12 @@ class Tree {
       parent->childs.push_back(child);
       std::vector<char> remainingSymbol(symbol);
       remainingSymbol.erase(std::find(remainingSymbol.begin(),
-	      remainingSymbol.end(), c));
+        remainingSymbol.end(), c));
       buildTree(remainingSymbol, child);
     }
   }
 
-  void generatePermut(Node* data, std::vector<char>* dataPermutation, 
+  void generatePermut(Node* data, std::vector<char>* dataPermutation,
 std::vector<std::vector<char>>* permutations) const {
     dataPermutation->push_back(data->elem);
     if (data->childs.empty()) {
